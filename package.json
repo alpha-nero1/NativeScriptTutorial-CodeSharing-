@@ -14,7 +14,12 @@
     "android": "tns run android",
     "ios": "tns run ios",
     "mobile": "tns run",
-    "preview": "tns preview"
+    "preview": "tns preview",
+    "find-ios": "tns device ios --available-devices",
+    "xr": "tns run ios --device 651A9E25-C5A6-4163-8569-302F2116E086",
+    "ale": "tns run ios --device 00008020-001208223E29002E",
+    "debug": "tns debug ios --device 651A9E25-C5A6-4163-8569-302F2116E086",
+    "11": "tns run ios --device 35CD06D6-9A71-461A-9F59-42744D35A85F"
   },
   "private": true,
   "dependencies": {

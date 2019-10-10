@@ -13,7 +13,6 @@ declare var android: any;
   selector: 'ns-action-bar',
   templateUrl: './action-bar.component.html',
   styleUrls: ['./action-bar.component.css'],
-  moduleId: module.id
 })
 export class ActionBarComponent {
 
@@ -71,7 +70,7 @@ export class ActionBarComponent {
           backButton.setColorFilter(android.graphics.Color.parseColor(
             '#006eff',
             (<any>android.graphics).PorterDuff.Mode.SRC_ATOP)
-          )
+          );
         }
       }
     }

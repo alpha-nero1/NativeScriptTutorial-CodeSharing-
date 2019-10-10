@@ -10,10 +10,9 @@ import { Router } from '@angular/router';
  * @description auth component handling user authentication.
  */
 @Component({
-  selector: 'ns-auth',
+  selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
-  moduleId: module.id
 })
 export class AuthComponent implements OnInit {
 
@@ -84,9 +83,9 @@ export class AuthComponent implements OnInit {
     const password = this.form.get('password');
     this.isLoading = true;
     if (this.isLogin) {
-      this.authService.login(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler)
+      this.authService.login(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler);
     } else {
-      this.authService.signUp(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler)
+      this.authService.signUp(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler);
     }
   }
 

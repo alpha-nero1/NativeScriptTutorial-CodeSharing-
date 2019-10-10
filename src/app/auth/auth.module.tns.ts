@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { NativeScriptFormsModule, NativeScriptRouterModule } from 'nativescript-angular';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthComponent } from './auth.component';
+import { AuthComponent } from '@src/app/auth/auth.component';
 
 @NgModule({
     declarations: [

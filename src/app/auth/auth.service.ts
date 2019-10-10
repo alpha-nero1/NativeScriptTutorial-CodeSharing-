@@ -8,12 +8,12 @@ import { User } from './user.model';
 import { setString, getString, hasKey, remove } from 'tns-core-modules/application-settings';
 import { RouterExtensions } from 'nativescript-angular';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class AuthService {
 
   private _user = new BehaviorSubject<User>(null);
 
-  private tokenExpTimer: number;
+  private tokenExpTimer: any;
 
   private signupUrl =
     `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${constants.firebaseAPIToken}`;
@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   public autoLogout(expDuration: number) {
-    this.tokenExpTimer = setTimeout(this.logout, expDuration)
+    this.tokenExpTimer = setTimeout(this.logout, expDuration);
   }
 
   public signUp(email: string, password: string) {
@@ -61,13 +61,13 @@ export class AuthService {
 
   public login(email: string, password: string) {
     return this.http.post<AuthResData>(this.signinUrl, { email, password, returnSecureToken: true })
-      .pipe(catchError(this.handleErr), tap((res) => this.resHandler(res, email)))
+      .pipe(catchError(this.handleErr), tap((res) => this.resHandler(res, email)));
   }
 
   public logout = () => {
     remove('user');
     if (this.tokenExpTimer) {
-      clearTimeout(this.tokenExpTimer)
+      clearTimeout(this.tokenExpTimer);
     }
     this._user.next(null);
     this.router.navigate(['/auth'], { clearHistory: true });
@@ -75,15 +75,15 @@ export class AuthService {
 
   private resHandler = (res: AuthResData, email: string) => {
     if (res && res.idToken) {
-      const expirationDate = new Date(new Date().getTime() + (parseInt(res.expiresIn) * 1000))
+      const expirationDate = new Date(new Date().getTime() + (+res.expiresIn * 1000));
       const user = new User(
         email,
         res.localId,
         res.idToken,
         expirationDate
-      )
+      );
       // Set the user in the disk. (String encoded).
-      setString('user', JSON.stringify(user))
+      setString('user', JSON.stringify(user));
       this.autoLogout(user.timeToExpiry);
       this._user.next(user);
     }
@@ -94,7 +94,7 @@ export class AuthService {
    */
   private handleErr = (error: any) => {
     const errMessage = error.error.message ? error.error.message : null;
-    switch(errMessage) {
+    switch (errMessage) {
       case 'EMAIL_EXISTS':
         // Uses system alert.
         alert('This email already exists');
@@ -104,7 +104,7 @@ export class AuthService {
         alert('Email or password incorrect.');
         break;
       default:
-        alert('Authentication failed.')
+        alert('Authentication failed.');
     }
     return throwError(errMessage);
   }
@@ -121,4 +121,4 @@ interface AuthResData {
   expiresIn: string;
   localId: string;
   registered?: boolean;
-  }
+}

@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { RouterExtensions } from 'nativescript-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from './auth.service';
 import { FormService } from '../helpers/form.service.tns';
 import { Router } from '@angular/router';
 
@@ -41,7 +39,7 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService,
+    //private authService: AuthService,
     private formService: FormService
   ) { }
 
@@ -83,9 +81,9 @@ export class AuthComponent implements OnInit {
     const password = this.form.get('password');
     this.isLoading = true;
     if (this.isLogin) {
-      this.authService.login(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler);
+      //this.authService.login(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler);
     } else {
-      this.authService.signUp(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler);
+      //this.authService.signUp(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler);
     }
   }
 

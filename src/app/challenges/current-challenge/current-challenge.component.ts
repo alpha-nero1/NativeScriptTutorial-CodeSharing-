@@ -10,7 +10,7 @@ import { Utils } from '../../utils/utils';
  * @description current challenge component to view current challenge.
  */
 @Component({
-    selector: 'ns-current-challenge',
+    selector: 'app-current-challenge',
     templateUrl: './current-challenge.component.html',
     styleUrls: ['./current-challenge.component.scss']
 })
@@ -59,7 +59,7 @@ export class CurrentChallengeComponent implements OnInit, OnDestroy {
   public getRow(index: number, day: Day): number {
     // Row 0 is occupied!
     const startRow = 2;
-    const rowForWeek = Math.floor(index / 7)
+    const rowForWeek = Math.floor(index / 7);
     const firstWeekDayOfMonth = new Date(
       new Date().getFullYear(),
       new Date().getMonth(),

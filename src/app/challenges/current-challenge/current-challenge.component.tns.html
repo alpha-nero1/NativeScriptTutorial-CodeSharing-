@@ -1,4 +1,4 @@
-<ns-action-bar title="Current challenge" [showBackButton]="false">
+<app-action-bar title="Current challenge" [showBackButton]="false">
   <!-- Transclusion! -->
   <Actionitem
     ios.position="right"
@@ -17,7 +17,7 @@
   >
     <Label ios:class="fa p-4" android:class="fa p-10" android:fontSize="24" text="&#xf044;" ></Label>
   </Actionitem>
-</ns-action-bar>
+</app-action-bar>
 <ScrollView>
   <FlexBoxLayout class="page" justifyContent="space-around">
     <StackLayout width="100%" *ngIf="currentChallenge" id="challenge">
@@ -49,6 +49,6 @@
         ></Label>
       </FlexBoxLayout>
     </GridLayout>
-    <ns-no-challenge *ngIf="!currentChallenge"></ns-no-challenge>
+    <app-no-challenge *ngIf="!currentChallenge"></app-no-challenge>
   </FlexBoxLayout>
 </ScrollView>

@@ -1,10 +1,10 @@
-<ns-day-modal 
+<app-day-modal 
   *ngIf="selectedDay" 
   (actionSelect)="onUpdateStatus($event)" 
   [selectedDay]="selectedDay.date"
   [selectedStatus]="utils.getActionName(selectedDay.status)"
-  ></ns-day-modal>
-<ns-action-bar [hasChallenge]="currentChallenge" title="Current challenge"></ns-action-bar>
+  ></app-day-modal>
+<app-action-bar [hasChallenge]="currentChallenge" title="Current challenge"></app-action-bar>
 <div class="page" justifyContent="space-around">
   <div *ngIf="currentChallenge">
     <div width="100%" *ngIf="currentChallenge && !isLoading" id="challenge">
@@ -31,6 +31,6 @@
     </div>
   </div>
   </div>
-  <ns-no-challenge *ngIf="!currentChallenge && !isLoading"></ns-no-challenge>
-  <ns-loading-indicator *ngIf="isLoading"></ns-loading-indicator>
+  <app-no-challenge *ngIf="!currentChallenge && !isLoading"></app-no-challenge>
+  <app-loading-indicator *ngIf="isLoading"></app-loading-indicator>
 </div>

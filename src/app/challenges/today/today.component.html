@@ -1,9 +1,9 @@
-<ns-action-bar [hasChallenge]="currentDay"></ns-action-bar>
+<app-action-bar [hasChallenge]="currentDay"></app-action-bar>
 <div *ngIf="currentDay && !isLoading" class="page">
   <p class="h1">{{ currentDay.date | date }}</p>
-  <ns-challenge-actions [action]="getActionName(currentDay)" (actionSelect)="onActionSelected($event)" [cancelText]="'Reset'"></ns-challenge-actions>
+  <app-challenge-actions [action]="getActionName(currentDay)" (actionSelect)="onActionSelected($event)" [cancelText]="'Reset'"></app-challenge-actions>
 </div>
 <div *ngIf="!currentDay" class="page">
-  <ns-no-challenge></ns-no-challenge>
+  <app-no-challenge></app-no-challenge>
 </div>
-<ns-loading-indicator *ngIf="isLoading"></ns-loading-indicator>
+<app-loading-indicator *ngIf="isLoading"></app-loading-indicator>

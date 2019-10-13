@@ -1,4 +1,4 @@
-<ns-action-bar [hasChallenge]="isEditing"></ns-action-bar>
+<app-action-bar [hasChallenge]="isEditing"></app-action-bar>
 <form *ngIf="!isLoading" flexDirection="column" justifyContent="center">
   <div class="form" (ngSubmit)="onSubmit()">
       <div class="input-field">
@@ -36,4 +36,4 @@
       >Save</Button>
     </div>
 </form>
-<ns-loading-indicator *ngIf="isLoading"></ns-loading-indicator>
+<app-loading-indicator *ngIf="isLoading"></app-loading-indicator>

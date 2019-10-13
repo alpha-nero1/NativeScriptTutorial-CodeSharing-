@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NativeScriptRouterModule } from 'nativescript-angular';
 import { ChallengeTabsComponent } from './challenge-tabs/challenge-tabs.component.tns';
-import { TodayComponent } from './today/today.component.tns';
+import { TodayComponent } from './today/today.component';
 import { CurrentChallengeComponent } from './current-challenge/current-challenge.component';
 
 const routes: Routes = [
@@ -24,7 +24,7 @@ const routes: Routes = [
     },
     { path:
       ':mode',
-      loadChildren: '~/app/challenges/challenge-edit/challenge-edit.module#ChallengeEditModule'
+      loadChildren: './challenge-edit/challenge-edit.module#ChallengeEditModule'
     },
     {
       path: '',

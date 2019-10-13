@@ -4,7 +4,7 @@ import { ChallengesRoutingModule } from './challenges-routing.module';
 import { TodayComponent } from './today/today.component';
 import { ChallengeTabsComponent } from './challenge-tabs/challenge-tabs.component.tns';
 import { CurrentChallengeComponent } from './current-challenge/current-challenge.component';
-import { ActionBarModule } from '../shared/ui/action-bar/action-bar.module.tns';
+import { ActionBarModule } from '../shared/ui/action-bar/action-bar.module';
 import { ChallengeActionsModule } from './challenge-actions/challenge-actions.module';
 import { NativeScriptFormsModule } from 'nativescript-angular';
 import { NoChallengeComponent } from './no-challenge/no-challenge.component';

@@ -5,17 +5,16 @@ import { Component,
   AfterViewInit,
   ChangeDetectorRef,
   ViewContainerRef
-} from "@angular/core";
+} from '@angular/core';
 import { UIService } from './shared/ui/ui.service';
 import { Subscription } from 'rxjs';
 import { RadSideDrawerComponent } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import { AuthService } from './auth/auth.service';
-import { RouterExtensions } from 'nativescript-angular';
 
 @Component({
-  selector: "ns-app",
-  templateUrl: "./app.component.html",
+  selector: 'app-app',
+  templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
@@ -30,7 +29,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private changeDetectionRef: ChangeDetectorRef,
     private viewContainerRef: ViewContainerRef,
     private authService: AuthService,
-    private router: RouterExtensions
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +36,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
       if (this.drawer) {
         this.drawer.toggleDrawerState();
       }
-    })
+    });
     this.uiService.setRootVCRef(this.viewContainerRef);
   }
 
@@ -54,7 +52,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnDestroy(): void {
     if (this.drawerListener) {
-      this.drawerListener.unsubscribe()
+      this.drawerListener.unsubscribe();
     }
   }
 }

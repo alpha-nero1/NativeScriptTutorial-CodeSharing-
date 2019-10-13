@@ -7,6 +7,7 @@ import { NativeScriptHttpModule } from 'nativescript-angular';
 import { AuthGuard } from './auth/auth.guard';
 import { DayModalComponent } from './challenges/day-modal/day-modal.component';
 import { ChallengeActionsModule } from './challenges/challenge-actions/challenge-actions.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,14 +15,15 @@ import { ChallengeActionsModule } from './challenges/challenge-actions/challenge
     DayModalComponent
   ],
   imports: [
-    NativeScriptModule,
     AppRoutingModule,
-    NativeScriptHttpModule,
     ChallengeActionsModule,
+    HttpClientModule,
+    NativeScriptHttpModule,
+    NativeScriptModule,
     NativeScriptUISideDrawerModule
   ],
   entryComponents: [DayModalComponent],
-  providers: [AuthGuard],
+  providers: [AuthGuard, HttpClientModule],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

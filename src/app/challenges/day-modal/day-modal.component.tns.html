@@ -2,6 +2,6 @@
   <Label class="h1" [text]="loadedDate | date"></Label>
   <StackLayout class="dummy-space"></StackLayout>
   <FlexBoxLayout>
-    <ns-challenge-actions [action]="action" (actionSelect)="onHandleInput($event)"></ns-challenge-actions>
+    <app-challenge-actions [action]="action" (actionSelect)="onHandleInput($event)"></app-challenge-actions>
   </FlexBoxLayout>
 </FlexBoxLayout>

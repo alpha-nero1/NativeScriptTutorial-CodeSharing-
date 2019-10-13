@@ -11,7 +11,7 @@ import { take } from 'rxjs/operators';
  * @description edit challenge component.
  */
 @Component({
-  selector: 'ns-challenge-edit',
+  selector: 'app-challenge-edit',
   templateUrl: './challenge-edit.component.html',
   styleUrls: ['./challenge-edit.component.scss']
 })

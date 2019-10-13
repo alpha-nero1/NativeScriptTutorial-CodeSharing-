@@ -10,7 +10,7 @@ declare var android: any;
  * @description re-usable action bar component.
  */
 @Component({
-  selector: 'ns-action-bar',
+  selector: 'app-action-bar',
   templateUrl: './action-bar.component.html',
 })
 export class ActionBarComponent {

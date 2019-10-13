@@ -10,7 +10,7 @@ import { Utils } from '../../utils/utils';
  * @description today component to shoe the days challenge.
  */
 @Component({
-  selector: 'ns-today',
+  selector: 'app-today',
   templateUrl: './today.component.html',
   styleUrls: ['./today.component.scss'],
 })

@@ -20,6 +20,7 @@ FlexBoxLayout {
 }
 
 .button {
+  background-color: $primary;
   color: white;
   height: 40;
   border-radius: 20%;
@@ -108,7 +109,7 @@ FlexBoxLayout {
   font-family: 'Roboto', 'Roboto-Regular', 'Roboto-Bold', 'Roboto-Light';
 }
 
-ns-no-challenge {
+app-no-challenge {
   /* Add mobile styles for the component here.  */
   flex-direction: column;
   justify-content: center;

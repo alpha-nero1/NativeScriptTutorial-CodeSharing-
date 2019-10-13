@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ModalDialogService } from 'nativescript-angular';
-import { DayModalComponent } from '../day-modal/day-modal.component.tns';
+import { DayModalComponent } from '../day-modal/day-modal.component';
 import { UIService } from '../../shared/ui/ui.service';
 import { ChallengesService } from '../challenges.service';
 import { Challenge } from '../challenge.model';
@@ -13,13 +13,13 @@ import { Utils } from '../../utils/utils';
  * @description current challenge component to view current challenge.
  */
 @Component({
-    selector: 'ns-current-challenge',
+    selector: 'app-current-challenge',
     templateUrl: './current-challenge.component.html',
     styleUrls: ['./current-challenge.component.scss']
 })
 export class CurrentChallengeComponent implements OnInit, OnDestroy {
 
-  public weekDays: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  public weekDays: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   public currentChallenge: Challenge;
 

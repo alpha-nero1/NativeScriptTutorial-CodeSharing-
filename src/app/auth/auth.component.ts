@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
  * @description auth component handling user authentication.
  */
 @Component({
-  selector: 'ns-auth',
+  selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
 })

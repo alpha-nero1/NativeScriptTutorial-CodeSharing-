@@ -1,12 +1,12 @@
-<ns-action-bar
+<app-action-bar
   title="Today's challenge"
   [showBackButton]="false"
-></ns-action-bar>
+></app-action-bar>
 <FlexBoxLayout *ngIf="currentDay" flexDirection="column" justifyContent="center" alignItems="center">
   <Label class="h1" [text]="currentDay.date | date"></Label>
   <StackLayout class="dummy-space"></StackLayout>
-  <ns-challenge-actions [action]="getActionName(currentDay)" (actionSelect)="onActionSelected($event)" [cancelText]="'Reset'"></ns-challenge-actions>
+  <app-challenge-actions [action]="getActionName(currentDay)" (actionSelect)="onActionSelected($event)" [cancelText]="'Reset'"></app-challenge-actions>
 </FlexBoxLayout>
 <FlexBoxLayout *ngIf="!currentDay" flexDirection="column" justifyContent="center" alignItems="center">
-  <ns-no-challenge></ns-no-challenge>
+  <app-no-challenge></app-no-challenge>
 </FlexBoxLayout>

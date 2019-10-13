@@ -11,7 +11,7 @@
     <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
       <button type="button" class="button-flat" (click)="onSwitch()">{{ isLogin ? 'Signup': 'Login' }}</button>
       <button type="submit" class="button" *ngIf="!isLoading">{{ isLogin ? 'Login': 'Signup' }}</button>
-      <ns-loading-indicator *ngIf="isLoading"></ns-loading-indicator>
+      <app-loading-indicator *ngIf="isLoading"></app-loading-indicator>
     </div>
   </form>
 </div>

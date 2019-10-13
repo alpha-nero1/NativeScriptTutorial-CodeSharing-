@@ -6,13 +6,12 @@ import { ChallengesService } from '../challenges.service';
 
 /**
  * @author Alessandro Alberga
- * @description
+ * @description component housing our tabs.
  */
 @Component({
-  selector: 'ns-challenge-tabs',
+  selector: 'app-challenge-tabs',
   templateUrl: './challenge-tabs.component.html',
   styleUrls: ['./challenge-tabs.component.css'],
-  moduleId: module.id
 })
 export class ChallengeTabsComponent implements OnInit {
 

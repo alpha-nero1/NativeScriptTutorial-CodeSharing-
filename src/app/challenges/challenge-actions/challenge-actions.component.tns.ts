@@ -3,7 +3,7 @@ import { DayStatus } from '../day.model';
 import { InvokeFunctionExpr } from '@angular/compiler';
 
 @Component({
-  selector: 'ns-challenge-actions',
+  selector: 'app-challenge-actions',
   templateUrl: './challenge-actions.component.html',
   styleUrls: ['./challenge-actions.component.scss']
 })

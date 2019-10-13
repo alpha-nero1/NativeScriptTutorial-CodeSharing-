@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ns-backdrop',
+  selector: 'app-backdrop',
   template: `
     <div class="backdrop"></div>
   `,

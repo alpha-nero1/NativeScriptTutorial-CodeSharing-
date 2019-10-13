@@ -2,7 +2,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { ChallengeEditComponent } from './challenge-edit.component';
 import { NativeScriptRouterModule, NativeScriptFormsModule } from 'nativescript-angular';
-import { ActionBarModule } from '../../shared/ui/action-bar/action-bar.module.tns';
+import { ActionBarModule } from '../../shared/ui/action-bar/action-bar.module';
 
 /**
  * @author Alessandro Alberga

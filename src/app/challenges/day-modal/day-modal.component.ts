@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DayStatus } from '../day.model';
 
 @Component({
-  selector: 'ns-day-modal',
+  selector: 'app-day-modal',
   templateUrl: './day-modal.component.html',
   styleUrls: ['./day-modal.component.scss'],
 })

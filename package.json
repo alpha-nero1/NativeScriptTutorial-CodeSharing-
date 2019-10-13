@@ -1,10 +1,14 @@
 {
   "name": "ns-ng-course-shared",
   "nativescript": {
-    "id": "org.nativescript.nsngcourseshared"
+    "id": "org.nativescript.nsngcourseshared",
+    "tns-ios": {
+      "version": "6.1.1"
+    }
   },
   "version": "0.0.0",
   "scripts": {
+    "11": "tns run ios --device A59B5300-66F3-46B3-8639-7D6B04B65A6B",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -18,15 +22,16 @@
     "find-ios": "tns device ios --available-devices",
     "xr": "tns run ios --device 651A9E25-C5A6-4163-8569-302F2116E086",
     "ale": "tns run ios --device 00008020-001208223E29002E",
-    "debug": "tns debug ios --device 651A9E25-C5A6-4163-8569-302F2116E086",
-    "11": "tns run ios --device 35CD06D6-9A71-461A-9F59-42744D35A85F"
+    "debug": "tns debug ios --device 651A9E25-C5A6-4163-8569-302F2116E086"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.0.1",
+    "@angular/cdk": "^8.2.3",
     "@angular/common": "~8.0.1",
     "@angular/compiler": "~8.0.1",
     "@angular/core": "~8.0.1",
+    "@angular/flex-layout": "^8.0.0-beta.27",
     "@angular/forms": "~8.0.1",
     "@angular/http": "~8.0.0-beta.10",
     "@angular/platform-browser": "~8.0.1",
@@ -35,6 +40,7 @@
     "core-js": "^2.5.4",
     "nativescript-angular": "~8.0.1",
     "nativescript-theme-core": "~1.0.4",
+    "nativescript-ui-sidedrawer": "^7.0.2",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.5.0",
     "tns-core-modules": "~6.0.0",

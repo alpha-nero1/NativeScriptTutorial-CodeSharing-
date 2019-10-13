@@ -1,0 +1,11 @@
+<TabView androidTabsPosition="bottom" class="fas" tabTextFontSize="20" *ngIf="!isLoading">
+  <StackLayout *tabItem="{ title: '&#xf5a2;' }">
+    <page-router-outlet name="today"></page-router-outlet>
+  </StackLayout>
+  <StackLayout *tabItem="{ title: '&#xf073;' }">
+    <page-router-outlet name="current"></page-router-outlet>
+  </StackLayout>
+</TabView>
+<FlexBoxLayout *ngIf="isLoading" flexDirection="column" justifyContent="center" alignItems="center">
+  <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+</FlexBoxLayout>

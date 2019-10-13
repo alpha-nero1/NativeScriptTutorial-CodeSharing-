@@ -1,0 +1,46 @@
+@import '../../../theme/colors';
+
+.page {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20;
+}
+
+.weekday-label {
+  color: $secondary;
+  font-weight: bold;
+  margin: 10;
+}
+
+#challenge {
+  margin-bottom: 10;
+}
+
+.day {
+  width: 50;
+  height: 50;
+  border-color: $primary;
+  background-color: white;
+  border-width: 1;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin: 10;
+}
+
+.completed {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.failed {
+  background-color: $warning;
+  border-color: $warning;
+}
+
+.not-settable {
+  background-color: #eee;
+  border-color: #eee;
+  color: #535353;
+}

@@ -12,7 +12,6 @@ declare var android: any;
 @Component({
   selector: 'ns-action-bar',
   templateUrl: './action-bar.component.html',
-  styleUrls: ['./action-bar.component.css'],
 })
 export class ActionBarComponent {
 

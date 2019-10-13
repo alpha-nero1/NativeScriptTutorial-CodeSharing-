@@ -1,1 +1,19 @@
-  <page-router-outlet></page-router-outlet>
+<RadSideDrawer>
+  <FlexBoxLayout
+    tkDrawerContent="tkDrawerContent"
+    class="drawer"
+    flexDirection="column"
+    alignItems="center"
+  >
+    <Label height="50" class="real-mellow" text="You can do it!"></Label>
+    <Button
+      text="Logout"
+      width="200"
+      class="button"
+      (tap)="logout()"
+    ></Button>
+  </FlexBoxLayout>
+  <StackLayout tkMainContent="tkMainContent">
+    <page-router-outlet></page-router-outlet>
+  </StackLayout>
+</RadSideDrawer>

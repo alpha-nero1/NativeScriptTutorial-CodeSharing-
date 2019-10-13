@@ -1,0 +1,42 @@
+<ns-action-bar [title]="isEdit ? 'Edit challenge' : 'Set challenge'" [hasMenu]="false"></ns-action-bar>
+<FlexBoxLayout flexDirection="column" justifyContent="center">
+  <FlexBoxLayout class="form">
+      <StackLayout class="input-field">
+        <Label
+          class="label"
+          text="Title"
+          [ngClass]="{ invalid: !titleControl.valid && titleControl.touched }"
+        ></Label>
+        <TextField
+          #titleControl="ngModel"
+          [(ngModel)]="challengeInput.title"
+          class="input"
+          returnKeyType="next"
+          required
+          ></TextField>
+        <Label class="real-mellow" *ngIf="!titleControl.valid && titleControl.touched" text="Please enter a valid title."></Label>
+      </StackLayout>
+      <StackLayout class="input-field">
+        <Label
+          class="label"
+          text="Description"
+          [ngClass]="{ invalid: !descriptionControl.valid && descriptionControl.touched }"
+        ></Label>
+        <TextView
+          #descriptionControl="ngModel"
+          [(ngModel)]="challengeInput.description"
+          class="input"
+          required
+          returnKeyType="done"
+          ></TextView>
+        <Label class="real-mellow" *ngIf="!descriptionControl.valid && descriptionControl.touched" text="Please enter a valid description."></Label>
+      </StackLayout>
+      <Button
+        [isEnabled]="titleControl.valid && descriptionControl.valid"
+        width="200"
+        class="button"
+        text="Save"
+        (tap)="onSubmit()"
+      ></Button>
+    </FlexBoxLayout>
+</FlexBoxLayout>

@@ -1,26 +1,21 @@
-<ActionBar
-  [title]="title"
-  (loaded)="onLoadedActionBar()"
->
-  <NavigationButton
-    *ngIf="canGoBack"
-    text="Back"
-    android.systemIcon="ic_menu_back"
-    (tap)="goBack()"
-  ></NavigationButton>
-
-  <NavigationButton
-    *ngIf="android && hasMenu"
-    icon="res://menu_black"
-    (tap)="onToggleMenu()"
-  ></NavigationButton>
-
-  <ActionItem
-    *ngIf="!android && hasMenu"
-    ios.position="left"
-    (tap)="onToggleMenu()"
-  >
-    <Label text="&#xf0c9;" class="fa m-5"></Label>
-  </ActionItem>
-  <ng-content></ng-content>
-</ActionBar>
+<header class="action-bar">
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="/challenges/today">Today</a>
+      </li>
+      <li>
+        <a routerLink="/challenges/current">Current challenge</a>
+      </li>
+      <li>
+        <a routerLink="/challenges/set">Set new</a>
+      </li>
+      <li *ngIf="hasChallenge">
+        <a routerLink="/challenges/edit">Edit</a>
+      </li>
+      <li>
+        <button (click)="onLogout()">Logout</button>
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,62 @@
+@import '../../../theme/colors';
+
+.grid {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.weekday-label {
+  color: $secondary;
+  font-weight: bold;
+  margin: 10px;
+}
+
+#challenge {
+  margin-bottom: 10px;
+}
+
+.day {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  border-color: $primary;
+  background-color: white;
+  border-width: 1px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+
+  @media (min-width: 768px) {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+  }
+}
+
+.completed {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.failed {
+  background-color: $warning;
+  border-color: $warning;
+}
+
+.not-settable {
+  background-color: #eee;
+  border-color: #eee;
+  color: #535353;
+  cursor: not-allowed;
+}

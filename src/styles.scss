@@ -1,4 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import './theme/colors';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+.input-field {
+  margin: 16px 0px;
+}
+
+.input {
+  font: inherit;
+  border: none;
+  border-bottom-style: solid;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.button:hover, .button:active {
+  background: lighten($primary, 10);
+}
 
 // Import common styles
 @import 'app-common';
+
+.button {
+  background: $primary;
+  color: white;
+  padding: 4px 16px;
+  font: inherit;
+  cursor: pointer;
+  height: 40px;
+  width: 200px;
+  margin: 8px;
+  border-radius: 20px;
+}
+
+.button-inverse {
+  padding: 4px 16px;
+  font: inherit;
+  cursor: pointer;
+  height: 40px;
+  width: 200px;
+  margin: 8px;
+  border-radius: 20px;
+}
+
+.button-flat {
+  cursor: pointer;
+  color: $primary;
+  padding: 4px 16px;
+  background-color: transparent;
+  border-color: $primary;
+  height: 40px;
+  width: 200px;
+  margin: 8px;
+  border-radius: 20px;
+}
+
+.button-flat:hover,
+.button-flat:active {
+  background: lighten($primary, 50);
+}

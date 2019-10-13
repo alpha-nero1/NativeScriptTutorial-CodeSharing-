@@ -1,0 +1,36 @@
+<ns-day-modal 
+  *ngIf="selectedDay" 
+  (actionSelect)="onUpdateStatus($event)" 
+  [selectedDay]="selectedDay.date"
+  [selectedStatus]="utils.getActionName(selectedDay.status)"
+  ></ns-day-modal>
+<ns-action-bar [hasChallenge]="currentChallenge" title="Current challenge"></ns-action-bar>
+<div class="page" justifyContent="space-around">
+  <div *ngIf="currentChallenge">
+    <div width="100%" *ngIf="currentChallenge && !isLoading" id="challenge">
+      <h1 class="h1 text-center">{{currentChallenge.title}}</h1>
+      <p class="text-center">{{ currentChallenge.description }}</p>
+    </div>
+    <div class="grid" *ngIf="currentChallenge">
+      <span
+        class="text-center weekday-label"
+        *ngFor="let day of weekDays; let i = index"
+      >{{ day }}
+      </span>
+    <div
+      *ngFor="let day of currentChallenge.days; let i = index"
+      class="day"
+      [ngClass]="{
+        'not-settable': !getIsSettable(day.dayInMonth),
+        'completed': (day.status === 1),
+        'failed': (day.status === 2)
+      }"
+      [ngStyle]="{ 'grid-row': getRow(i, day), 'grid-column': (day.dayInWeek + 1) }"
+      (click)="onChangeStatus(day)">
+      <span>{{ day.dayInMonth }}</span>
+    </div>
+  </div>
+  </div>
+  <ns-no-challenge *ngIf="!currentChallenge && !isLoading"></ns-no-challenge>
+  <ns-loading-indicator *ngIf="isLoading"></ns-loading-indicator>
+</div>

@@ -5,10 +5,11 @@ import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject, of, Observable } from 'rxjs';
 import { alert } from 'tns-core-modules/ui/dialogs';
 import { User } from './user.model';
-import { setString, getString, hasKey, remove } from 'tns-core-modules/application-settings';
-import { RouterExtensions } from 'nativescript-angular';
+import { RoutingService } from '../helpers/routing.service';
+import { DialogService } from '../helpers/dialog.service';
+import { StorageService } from '../helpers/storage.service';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthService {
 
   private _user = new BehaviorSubject<User>(null);
@@ -21,19 +22,24 @@ export class AuthService {
   private signinUrl =
     `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${constants.firebaseAPIToken}`;
 
-  constructor(private http: HttpClient, private router: RouterExtensions) { }
+  constructor(
+    private http: HttpClient,
+    private routeringService: RoutingService,
+    private dialogService: DialogService,
+    private storageService: StorageService
+  ) { }
 
   get user() {
     return this._user.asObservable();
   }
 
   public autoLogin(): Observable<boolean> {
-    if (!hasKey('user')) {
-      // We have stored data of the user.
+    if (!this.storageService.hasKey('user')) {
+      // We have stored data of the user.+
       return of(false);
     }
     // parse the json into an object we may use.
-    const userData = JSON.parse(getString('user'));
+    const userData = JSON.parse(this.storageService.getString('user'));
     // Get an instance back.
     const userFromDisk = new User(
      userData.email,
@@ -65,12 +71,12 @@ export class AuthService {
   }
 
   public logout = () => {
-    remove('user');
+    this.storageService.remove('user');
     if (this.tokenExpTimer) {
       clearTimeout(this.tokenExpTimer);
     }
     this._user.next(null);
-    this.router.navigate(['/auth'], { clearHistory: true });
+    this.routeringService.replace(['/auth']);
   }
 
   private resHandler = (res: AuthResData, email: string) => {
@@ -83,7 +89,7 @@ export class AuthService {
         expirationDate
       );
       // Set the user in the disk. (String encoded).
-      setString('user', JSON.stringify(user));
+      this.storageService.storeString('user', JSON.stringify(user));
       this.autoLogout(user.timeToExpiry);
       this._user.next(user);
     }
@@ -97,14 +103,14 @@ export class AuthService {
     switch (errMessage) {
       case 'EMAIL_EXISTS':
         // Uses system alert.
-        alert('This email already exists');
+        this.dialogService.alert('This email already exists');
         break;
       case 'INVALID_PASSWORD':
         // Uses system alert.
-        alert('Email or password incorrect.');
+        this.dialogService.alert('Email or password incorrect.');
         break;
       default:
-        alert('Authentication failed.');
+        this.dialogService.alert('Authentication failed.');
     }
     return throwError(errMessage);
   }

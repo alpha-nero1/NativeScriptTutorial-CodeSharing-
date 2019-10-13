@@ -1,0 +1,49 @@
+/* Add mobile styles for the component here.  */
+@import '../../../theme/colors';
+
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.button {
+  width: 300px;
+}
+
+.button-success {
+  background: $success;
+  border-color: $success;
+  color: white;
+}
+
+button {
+  margin: 10px;
+}
+
+.button-inverse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animate-button {
+  animation-name: slide-up;
+  animation-iteration-count: 1;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+/* Animate the element in. */
+@keyframes slide-up {
+  from {
+    transform: translateY(30)
+  }
+  to {
+    transform: translateY(0)
+  }
+}
+
+p {
+  text-align: center;
+}

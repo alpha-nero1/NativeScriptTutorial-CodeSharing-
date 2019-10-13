@@ -1,0 +1,54 @@
+<ns-action-bar title="Current challenge" [showBackButton]="false">
+  <!-- Transclusion! -->
+  <Actionitem
+    ios.position="right"
+    android.position="actionBar"
+    nsRouterLink="/challenges/set"
+    pageTransition="slideLeft"
+  >
+    <Label ios:class="fa p-4" android:class="fa p-10" android:fontSize="24" text="&#xf0fe;"></Label>
+  </Actionitem>
+  <Actionitem
+    *ngIf="currentChallenge"
+    ios.position="right"
+    android.position="actionBar"
+    nsRouterLink="/challenges/edit"
+    pageTransition="slideLeft"
+  >
+    <Label ios:class="fa p-4" android:class="fa p-10" android:fontSize="24" text="&#xf044;" ></Label>
+  </Actionitem>
+</ns-action-bar>
+<ScrollView>
+  <FlexBoxLayout class="page" justifyContent="space-around">
+    <StackLayout width="100%" *ngIf="currentChallenge" id="challenge">
+      <Label class="h1 text-center" [text]="currentChallenge.title"></Label>
+      <Label class="body text-center" [text]="currentChallenge.description"></Label>
+    </StackLayout>
+    <GridLayout *ngIf="currentChallenge" rows="auto, *, *, *, *, *, *" columns="*, *, *, *, *, *, *">
+      <Label
+        class="text-center weekday-label"
+        width="100%"
+        *ngFor="let day of weekDays; let i = index"
+        [text]="day"
+        row="0"
+        [col]="i"
+      ></Label>
+      <FlexBoxLayout
+        *ngFor="let day of currentChallenge.days; let i = index"
+        class="day"
+        [ngClass]="{
+          'not-settable': !getIsSettable(day.dayInMonth),
+          'completed': (day.status === 1),
+          'failed': (day.status === 2)
+        }"
+        [col]="day.dayInWeek"
+        [row]="getRow(i, day)"
+        (tap)="onChangeStatus(day)">
+        <Label
+          [text]="day.dayInMonth"
+        ></Label>
+      </FlexBoxLayout>
+    </GridLayout>
+    <ns-no-challenge *ngIf="!currentChallenge"></ns-no-challenge>
+  </FlexBoxLayout>
+</ScrollView>

@@ -1,0 +1,15 @@
+/* Add mobile styles for the component here.  */
+.modal {
+  position: fixed;
+  width: 80%;
+  height: 50vh;
+  left: 10%;
+  top: 25vh;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0, 0.26);
+  z-index: 100;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

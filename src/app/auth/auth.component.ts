@@ -1,16 +1,17 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { FormService } from '../helpers/form.service.tns';
+import { FormService } from '../helpers/form.service';
 import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 /**
  * @author Alessandro Alberga
  * @description auth component handling user authentication.
  */
 @Component({
-  selector: 'app-auth',
+  selector: 'ns-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css'],
+  styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
 
@@ -39,7 +40,7 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private router: Router,
-    //private authService: AuthService,
+    private authService: AuthService,
     private formService: FormService
   ) { }
 
@@ -81,9 +82,9 @@ export class AuthComponent implements OnInit {
     const password = this.form.get('password');
     this.isLoading = true;
     if (this.isLogin) {
-      //this.authService.login(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler);
+      this.authService.login(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler);
     } else {
-      //this.authService.signUp(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler);
+      this.authService.signUp(username.value, password.value).subscribe(this.loginToAppHandler, this.loginErrHandler);
     }
   }
 
@@ -93,7 +94,7 @@ export class AuthComponent implements OnInit {
   }
 
   private loginToAppHandler = () => {
-    this.router.navigate(['/challenges/tabs']);
+    this.router.navigate(['/challenges']);
     this.isLoading = false;
   }
 }

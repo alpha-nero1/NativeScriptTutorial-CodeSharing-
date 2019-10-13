@@ -1,0 +1,41 @@
+<FlexBoxLayout>
+  <Button
+    *ngIf="action !== 'success'"
+    class="button"
+    text="Completed"
+    [isEnabled]="!done"
+    (tap)="onAction('success')">
+  </Button>
+  <StackLayout
+    *ngIf="action === 'success'"
+    class="button"
+  >
+    <Label
+      text="&#xf00c;"
+      horizontalAlignment="center"
+      class="fa animate-button"
+      ></Label>
+  </StackLayout>
+  <Button
+    *ngIf="action !== 'fail'"
+    class="button-inverse"
+    text="Failed"
+    [isEnabled]="!done"
+    (tap)="onAction('fail')"
+  ></Button>
+  <StackLayout
+    *ngIf="action === 'fail'"
+    class="button-inverse"
+  >
+    <Label
+      text="&#xf00d;"
+      horizontalAlignment="center"
+      class="fa animate-button"
+      ></Label>
+  </StackLayout>
+  <Button
+    class="button-flat"
+    [text]="cancelText"
+    (tap)="onAction('cancel')"
+  ></Button>
+</FlexBoxLayout>

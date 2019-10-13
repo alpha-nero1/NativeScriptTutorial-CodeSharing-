@@ -1,0 +1,7 @@
+<ns-backdrop (click)="onHandleInput(0)"></ns-backdrop>
+<div class="modal">
+  <h1 class="h1">{{ loadedDate | date }}</h1>
+  <div>
+    <ns-challenge-actions [action]="action" (actionSelect)="onHandleInput($event)"></ns-challenge-actions>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+/* Add mobile styles for the component here.  */
+@import '../../../theme/colors';
+@import '~nativescript-theme-core/scss/light';
+
+FlexBoxLayout {
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.button {
+  width: 300;
+}
+
+.button-success {
+  background: $success;
+  border-color: $success;
+  color: $white;
+}
+
+Button {
+  margin: 10
+}
+
+StackLayout {
+  padding: 0;
+  margin: 0;
+}
+
+Label {
+  padding: 0;
+  margin: 0;
+}
+
+.animate-button {
+  animation-name: slide-up;
+  animation-iteration-count: 1;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+/* Animate the element in. */
+@keyframes slide-up {
+  from {
+    transform: translateY(30)
+  }
+  to {
+    transform: translateY(0)
+  }
+}

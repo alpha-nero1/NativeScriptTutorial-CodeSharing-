@@ -1,11 +1,17 @@
-<form [formGroup]="form">
-  <div class="form-control">
-    <label for="username">Username</label>
-    <input type="text" id="username" formControlName="username"/>
-  </div>
-  <div class="form-control">
-    <label for="password">Password</label>
-    <input type="password" id="password" formControlName="password"/>
-  </div>
-  <button type="submit">Submit</button>
-</form>
+<div flexLayout="column" fxFlex="100">
+  <form class="form" [formGroup]="form" (ngSubmit)="onSignIn()">
+    <div class=input-field>
+      <label for="username" class="label">Username</label>
+      <input #usernameElement type="text" id="username" class="input" formControlName="username"/>
+    </div>
+    <div class="input-field">
+      <label for="password" class="label">Password</label>
+      <input #passwordElement type="password" id="password" class="input" formControlName="password"/>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+      <button type="button" class="button-flat" (click)="onSwitch()">{{ isLogin ? 'Signup': 'Login' }}</button>
+      <button type="submit" class="button" *ngIf="!isLoading">{{ isLogin ? 'Login': 'Signup' }}</button>
+      <ns-loading-indicator *ngIf="isLoading"></ns-loading-indicator>
+    </div>
+  </form>
+</div>

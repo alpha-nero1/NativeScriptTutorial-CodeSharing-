@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActionBarModule } from '../../shared/ui/action-bar/action-bar.module';
+import { LoadingIndicatorModule } from '../../shared/ui/loading-indicator/loading-indicator.module';
 
 /**
  * @author Alessandro Alberga
@@ -19,7 +20,8 @@ import { ActionBarModule } from '../../shared/ui/action-bar/action-bar.module';
     RouterModule.forChild([
       { path: '', component: ChallengeEditComponent }
     ]),
-    FormsModule
+    FormsModule,
+    LoadingIndicatorModule
   ],
   exports: [ChallengeEditComponent],
 })

@@ -52,7 +52,7 @@ export class ChallengeTabsComponent implements OnInit {
         }
       ], {
           relativeTo: this.active
-        })
-    }, 10)
+        });
+    }, 10);
   }
 }

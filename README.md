@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Migration to NativeScript.
+
+This project followed the steps specified here: https://docs.nativescript.org/angular/code-sharing/migrating-a-web-project to migrate the web project to a tri-platform code base.

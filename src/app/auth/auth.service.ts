@@ -24,7 +24,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private routeringService: RoutingService,
+    private routingService: RoutingService,
     private dialogService: DialogService,
     private storageService: StorageService
   ) { }
@@ -76,11 +76,12 @@ export class AuthService {
       clearTimeout(this.tokenExpTimer);
     }
     this._user.next(null);
-    this.routeringService.replace(['/auth']);
+    this.routingService.replace(['/auth']);
   }
 
   private resHandler = (res: AuthResData, email: string) => {
     if (res && res.idToken) {
+      console.log('\n RES', res);
       const expirationDate = new Date(new Date().getTime() + (+res.expiresIn * 1000));
       const user = new User(
         email,
@@ -92,6 +93,7 @@ export class AuthService {
       this.storageService.storeString('user', JSON.stringify(user));
       this.autoLogout(user.timeToExpiry);
       this._user.next(user);
+      this.routingService.replace(['/challenges/today']);
     }
   }
 

@@ -33,7 +33,6 @@ export class ChallengeEditComponent implements OnInit, OnDestroy {
   public challengeInput = new Challenge('', '');
 
   constructor(
-    private activatedRoute: ActivatedRoute,
     private pageRoute: PageRoute,
     private router: RouterExtensions,
     private challengesService: ChallengesService
@@ -41,7 +40,7 @@ export class ChallengeEditComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routeSubscription = this.pageRoute.activatedRoute
-    .subscribe(this.receivedActivatedRouteHandler)
+    .subscribe(this.receivedActivatedRouteHandler);
   }
 
   /**
@@ -51,7 +50,7 @@ export class ChallengeEditComponent implements OnInit, OnDestroy {
     activatedRoute.paramMap.subscribe(paramMap => {
         // Retrieve the mode.
         if (!paramMap.has('mode')) {
-          this.isEdit = false
+          this.isEdit = false;
         } else {
           this.isEdit = (paramMap.get('mode') === 'edit');
         }
@@ -72,13 +71,13 @@ export class ChallengeEditComponent implements OnInit, OnDestroy {
         this.challengeInput.title,
         this.challengeInput.description
       )
-      .subscribe(res => this.router.backToPreviousPage());
+      .subscribe(res => this.router.back());
     } else {
       this.challengesService.createNewChallenge(
         this.challengeInput.title,
         this.challengeInput.description
       )
-      .subscribe(res => this.router.backToPreviousPage());
+      .subscribe(res => this.router.back());
     }
   }
 

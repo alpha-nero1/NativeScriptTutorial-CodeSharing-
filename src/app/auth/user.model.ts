@@ -9,6 +9,7 @@ export class User {
     private _token: string,
     private _tokenExpirationDate: Date
   ) {
+    console.log('\n NEW USER ', this);
   }
 
   get isAuthenticated() {
@@ -16,7 +17,7 @@ export class User {
       Boolean(this._token) &&
       Boolean(this._tokenExpirationDate) &&
       Boolean(new Date() < this._tokenExpirationDate)
-    )
+    );
   }
 
   get timeToExpiry() {

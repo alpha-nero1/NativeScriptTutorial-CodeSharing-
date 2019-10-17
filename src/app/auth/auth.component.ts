@@ -94,7 +94,6 @@ export class AuthComponent implements OnInit {
   }
 
   private loginToAppHandler = () => {
-    this.router.navigate(['/challenges']);
     this.isLoading = false;
   }
 }

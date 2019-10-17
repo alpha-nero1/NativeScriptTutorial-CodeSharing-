@@ -30,7 +30,7 @@ export class ChallengesService implements OnDestroy {
           if (!user) {
               this._currentChallenge.next(null);
           }
-      })
+      });
    }
 
   /**
@@ -40,7 +40,11 @@ export class ChallengesService implements OnDestroy {
     return this.authService.user.pipe(
       take(1),
       switchMap(currentUser => {
-        if (!currentUser || !currentUser.isAuthenticated) {
+        if (
+          !currentUser ||
+          !currentUser.isAuthenticated ||
+          !currentUser.id
+        ) {
           return of(false);
         }
         return this.http.get(`${this.firebaseRestUrl}/challenge/${currentUser.id}.json?auth=${currentUser.token}`)
@@ -132,6 +136,7 @@ export class ChallengesService implements OnDestroy {
    */
   private saveToServer(challenge: Challenge) {
     return this.authService.user.pipe(take(1), switchMap(currentUser => {
+      console.log('\n MAKING QUERY WITH US', currentUser.id);
       if (!currentUser || !currentUser.isAuthenticated) {
         return;
       }

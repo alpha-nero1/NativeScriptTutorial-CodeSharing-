@@ -29,11 +29,11 @@
           ></textarea>
         <label class="real-mellow" *ngIf="!descriptionControl.valid && descriptionControl.touched">Please enter a valid description.</label>
       </div>
-      <Button
+      <button
         type="submit"
         [disabled]="!titleControl.valid || !descriptionControl.valid"
         class="button"
-      >Save</Button>
+      >Save</button>
     </div>
 </form>
 <app-loading-indicator *ngIf="isLoading"></app-loading-indicator>
